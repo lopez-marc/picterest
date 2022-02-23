@@ -1,38 +1,142 @@
-.App {
-  text-align: center;
+.grid {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: column;
+  columns: 4;
+  gap: 1em;
+}
+.grid-1 {
+  max-width: 20rem;
+  margin: 0 auto;
+  display: column;
+  columns: 1;
+  gap: 1em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.grid-2 {
+  max-width: 40rem;
+  margin: 0 auto;
+  display: column;
+  columns: 2;
+  gap: 1em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.grid-3 {
+  max-width: 60rem;
+  margin: 0 auto;
+  display: column;
+  columns: 3;
+  gap: 1em;
+}
+
+.grid > * {
+  break-inside: avoid;
+  margin-bottom: 1em;
+}
+
+@supports (grid-template-rows: masonry) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: masonry;
+  }
+
+  .grid > * {
+    margin-bottom: 0em;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.grid .grid-item {
+  padding: 1em;
+  background: #eee;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.grid .grid-item:hover {
+  box-shadow: rgba(0, 0, 0, 0.48) 0px 3px 8px;
+}
+.grid-item .main-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+caption {
+  width: 100%;
+}
+caption p {
+  background-color: #ddd;
+  padding: 0.5em;
+}
+
+caption div {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  background-color: #ddd;
+  padding: 0.5em;
+}
+caption button {
+  padding: 0.5em;
+}
+
+header {
+  background-color: grey;
+  display: flex;
+  padding: 0 5em;
+  margin-bottom: 2em;
+  height: 80px;
+}
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+header ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  font-weight: 900;
+  height: 100%;
+  margin: 0;
+}
+header a {
+  text-decoration: none;
+  color: #1c658c;
+  background-color: white;
+  height: 100%;
+  display: inline-block;
+  padding: 1em;
+  box-sizing: border-box;
+}
+header li {
+  height: 100%;
+}
+header a.active {
+  background-color: #398ab9;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.auth {
+  display: flex;
+}
+header img {
+  padding: 0.5em;
+}
+.isHidden {
+  /* TODO */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#add-image {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  background: #eeeeee;
+  z-index: 1;
+  padding: 1em;
+}
+
+#add-image form {
+  display: flex;
+  flex-direction: column;
+}
+.liked {
+  background-color: red;
+  color: white;
 }
