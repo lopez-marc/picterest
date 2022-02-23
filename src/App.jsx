@@ -17,7 +17,7 @@ function App () {
   )
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/picterest'>
       <div className='App'>
         <Navbar setPictures={setListOfPictures} />
 
